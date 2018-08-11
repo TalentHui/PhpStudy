@@ -41,3 +41,6 @@
 - Java编程思想
 - J2EE
 - PHP5权威编程
+
+###### 6、辅助工具
+- [PphStorm 在线激活](http://idea.lanyus.com/)
