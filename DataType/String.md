@@ -84,7 +84,7 @@ $s = implode(' ', $words);
 print $s;                                    // turtle. a was there time a upon Once
 ```
 
-###### 逗号分隔的数据 - fputcsv() - fgetcav()
+###### 9、逗号分隔的数据 - fputcsv() - fgetcav()
 ```php
 $sales_data = array(
     array('2018-08-11', 12),
@@ -130,7 +130,7 @@ $output = ob_get_contents();
 $ob_end_clean();
 ```
 
-###### 生成字段宽度固定的数据记录 - pack() or str_pad()
+###### 10、生成字段宽度固定的数据记录 - pack() or str_pad()
 ```php
 $book1 = 'Elmer Gantry';
 $book2 = 'Sinclair Lewis';
@@ -143,13 +143,13 @@ pack('A25A15A4', $book1, $book2, $book3);
 str_pad(sub_str($book1, 0, 25), 25, '.');
 ```
 
-###### 文本在特定长度处自动换行
+###### 11、文本在特定长度处自动换行
 ```php
 // 每行50个字符来自动将文本换行, 默认 \n 做分隔符
 prit wordwrap($s, $line_length = 50, $sign = "\n");
 ```
 
-###### 格式化字符 - pack() 和 unpack()
+###### 12、格式化字符 - pack() 和 unpack()
 ```php
 // 把2进制数据保存到一个字符串中 - return string
 $packed = pack('S4', 1974, 106, 28225, 32725);
@@ -181,7 +181,7 @@ $nums = unpack('S4', $packed);
 |X          | 倒退一个字节
 |@          | 绝对位置以空值填充
 
-###### 可下载的CSV
+###### 13、可下载的CSV
 ```php
 $sales_data = array(
     array('2018-08-11', 12),
