@@ -24,3 +24,20 @@
 - [详细介绍 GPL 协议](https://www.oschina.net/question/12_2826)
 - [详细介绍BSD协议](https://www.oschina.net/question/12_2825)
 
+###### 4、优秀博客
+- [风雪之偶](http://www.laruence.com/)
+- [RanGo](http://rango.swoole.com/)
+
+###### 5、书籍推荐
+- 深入理解计算机系统
+- 现代操作系统
+- C程序设计语言
+- C语言数据结构和算法
+- C程序设计语言
+- C语言数据结构和算法
+- Unix环境高级编程
+- TCP/IP网络通信详解
+- Java面向对象编程
+- Java编程思想
+- J2EE
+- PHP5权威编程
