@@ -1,0 +1,5 @@
+# ignore file
+
+# ignore directory
+./.idea
+./output
