@@ -15,3 +15,12 @@
 - [PHP DevCenter: 汇集了大量PHP文章和教程，集介绍性内容和高级主题于一身](http://www.onlamp.com/php)
 - [Planet PHP: 一个聚集PHPkaifa 人员及相关人士发表的博客文章的网站](http://www.planet-php.net)
 - [Zend Developer Zone: 包含定期更新的文章、教程和代码示例](http://devzone.zend.com)
+
+###### 3、开源协议
+- [详细介绍 Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+- [详细介绍 MPL (Mozilla Public License) 协议](http://www.mozilla.org/MPL/MPL-1.1.html)
+- [详细介绍 MIT 协议](http://www.opensource.org/licenses/mit-license.php)
+- [详细介绍 LGPL 协议](https://www.oschina.net/question/12_2827)
+- [详细介绍 GPL 协议](https://www.oschina.net/question/12_2826)
+- [详细介绍BSD协议](https://www.oschina.net/question/12_2825)
+
