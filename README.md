@@ -22,7 +22,7 @@
 - [详细介绍 MIT 协议](http://www.opensource.org/licenses/mit-license.php)
 - [详细介绍 LGPL 协议](https://www.oschina.net/question/12_2827)
 - [详细介绍 GPL 协议](https://www.oschina.net/question/12_2826)
-- [详细介绍BSD协议](https://www.oschina.net/question/12_2825)
+- [详细介绍 BSD协议](https://www.oschina.net/question/12_2825)
 
 ###### 4、优秀博客
 - [风雪之偶](http://www.laruence.com/)
