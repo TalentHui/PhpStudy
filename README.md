@@ -1,7 +1,7 @@
 # PhpStudy
 ---
 ###### 1、Markdown 语法详解
-[Markdown 语法整理大集合2017](https://www.jianshu.com/p/191d1e21f7ed)
+[Markdown 语法整理大集合2017](https://www.jianshu.com/p/b03a8d7b1719)
 
 ###### 2、一些PHP主要的资源网站
 - [PHP在线手册](http://www.php.net/manual)
