@@ -326,101 +326,544 @@ print_r($basket);
 ?>
 ```
 
-###### 14、
+###### 14、向数组中压入元素 - array_unshift()  array_push() 
 ```php
 <?php
+// array_unshift() - 在数组开头插入一个或多个单元
+// int array_unshift ( array &$array , mixed $value1 [, mixed $... ] )
+// array_unshift() 将传入的单元插入到 array 数组的开头。注意单元是作为整体被插入的，因此传入单元将保持同样的顺序。所有的数值键名将修改为从零开始重新计数，所有的文字键名保持不变。
 
+// array_push() - 将一个或多个单元压入数组的末尾（入栈）
+// int array_push ( array &$array , mixed $value1 [, mixed $... ] )
+// array_push() 将 array 当成一个栈，并将传入的变量压入 array 的末尾。array 的长度将根据入栈变量的数目增加。和如下效果相同：
 ?>
 ```
 
-###### 15、
+###### 15、向数组中弹出元素 - array_shift() array_pop()
 ```php
 <?php
+// array_shift — 将数组开头的单元移出数组
+// mixed array_shift ( array &$array )
+// array_shift() 将 array 的第一个单元移出并作为结果返回，将 array 的长度减一并将所有其它单元向前移动一位。所有的数字键名将改为从零开始计数，文字键名将不变。
+// Note: 使用此函数后会重置（reset()）array 指针。
 
+// array_pop — 弹出数组最后一个单元（出栈）
+// mixed array_pop ( array &$array )
+// array_pop() 弹出并返回 array 数组的最后一个单元，并将数组 array 的长度减一。
+// Note: 使用此函数后会重置（reset()）array 指针。
 ?>
 ```
 
-###### 16、
+###### 16、array_map — 为数组的每个元素应用回调函数
 ```php
 <?php
+// array array_map ( callable $callback , array $array1 [, array $... ] )
+// array_map()：返回数组，是为 array1 每个元素应用 callback函数之后的数组。 callback 函数形参的数量和传给 array_map() 数组数量，两者必须一样。
 
+function cube($n)
+{
+    return($n * $n * $n);
+}
+
+$a = array(1, 2, 3, 4, 5);
+$b = array_map("cube", $a);
+print_r($b);
+
+// 这使得 $b 成为：
+// 
+// Array
+// (
+//     [0] => 1
+//     [1] => 8
+//     [2] => 27
+//     [3] => 64
+//     [4] => 125
+// )
 ?>
 ```
 
-###### 17、
+###### 17、array_pad — 以指定长度将一个值填充进数组
 ```php
 <?php
+// array array_pad ( array $array , int $size , mixed $value )
+// array_pad() 返回 array 的一个拷贝，并用 value 将其填补到 size 指定的长度。如果 size 为正，则填补到数组的右侧，如果为负则从左侧开始填补。
+// 如果 size 的绝对值小于或等于 array 数组的长度则没有任何填补。有可能一次最多填补 1048576 个单元。
 
+$input = array(12, 10, 9);
+
+$result = array_pad($input, 5, 0);
+// result is array(12, 10, 9, 0, 0)
+
+$result = array_pad($input, -7, -1);
+// result is array(-1, -1, -1, -1, 12, 10, 9)
+
+$result = array_pad($input, 2, "noop");
+// not padded
 ?>
 ```
 
-###### 18、
+###### 18、in_array — 检查数组中是否存在某个值
 ```php
 <?php
-
+// bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
+// 大海捞针，在大海（haystack）中搜索针（ needle），如果没有设置 strict 则使用宽松的比较。
 ?>
 ```
 
-###### 19、
+###### 19、array_search — 在数组中搜索给定的值，如果成功则返回首个相应的键名
 ```php
 <?php
+// mixed array_search ( mixed $needle , array $haystack [, bool $strict = false ] )
+// 大海捞针，在大海（haystack）中搜索针（ needle 参数）。
+// strict - 如果可选的第三个参数 strict 为 TRUE，则 array_search() 将在 haystack 中检查完全相同的元素。 这意味着同样严格比较 haystack 里 needle 的 类型，并且对象需是同一个实例。
+// return - 如果找到了 needle 则返回它的键，否则返回 FALSE。
+//        - 如果 needle 在 haystack 中出现不止一次，则返回第一个匹配的键。要返回所有匹配值的键
 
+$array = array(0 => 'blue', 1 => 'red', 2 => 'green', 3 => 'red');
+
+$key = array_search('green', $array); // $key = 2;
+$key = array_search('red', $array);   // $key = 1;
 ?>
 ```
 
-###### 20、
+###### 20、字符串 和 数组转换
 ```php
 <?php
+// implode — 将一个一维数组的值转化为字符串
+// join — 将一个一维数组的值转化为字符串
+// string implode ( string $glue , array $pieces )
+// glue   英 [glu:]  美 [ɡlu] n.胶水； 胶粘物； 粘聚力；
+// pieces 英 ['pi:sɪz]  美 ['pisɪz] n.（尤指一套中的）一件( piece的名词复数 )； 片； 条
+// 返回一个字符串，其内容为由 glue 分割开的数组的值。
+$array = array('lastname', 'email', 'phone');
+$comma_separated = implode(",", $array);
 
+echo $comma_separated; // lastname,email,phone
+// explode — 使用一个字符串分割另一个字符串
+// array explode ( string $delimiter , string $string [, int $limit ] )
+// delimiter 英 [dɪ'lɪmɪtə]  美 [dɪ'lɪmɪtə] n.定界符，分隔符；
+// 此函数返回由字符串组成的数组，每个元素都是 string 的一个子串，它们被字符串 delimiter 作为边界点分割出来。
+$input1 = "hello";
+$input2 = "hello,there";
+var_dump( explode( ',', $input1 ) );
+var_dump( explode( ',', $input2 ) );
+
+// 以上例程会输出：
+// 
+// array(1)
+// (
+//     [0] => string(5) "hello"
+// )
+// array(2)
+// (
+//     [0] => string(5) "hello"
+//     [1] => string(5) "there"
+// )
 ?>
 ```
 
-###### 21、
+###### 21、array_filter — 用回调函数过滤数组中的单元
 ```php
 <?php
+//array array_filter ( array $array [, callable $callback [, int $flag = 0 ]] )
+//依次将 array 数组中的每个值传递到 callback 函数。如果 callback 函数返回 true，则 array 数组的当前值会被包含在返回的结果数组中。数组的键名保留不变。
 
+function odd($var)
+{
+    // returns whether the input integer is odd
+    return($var & 1);
+}
+
+function even($var)
+{
+    // returns whether the input integer is even
+    return(!($var & 1));
+}
+
+$array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
+$array2 = array(6, 7, 8, 9, 10, 11, 12);
+
+echo "Odd :\n";
+print_r(array_filter($array1, "odd"));
+echo "Even:\n";
+print_r(array_filter($array2, "even"));
+
+//以上例程会输出：
+//
+// Odd :
+// Array
+// (
+//     [a] => 1
+//     [c] => 3
+//     [e] => 5
+// )
+// Even:
+// Array
+// (
+//     [0] => 6
+//     [2] => 8
+//     [4] => 10
+//     [6] => 12
+// )
 ?>
 ```
 
-###### 22、
+###### 22、获取数组中 最大值 和 最小值
 ```php
 <?php
+// max — 找出最大值
+// mixed max ( array $values )
+// mixed max ( mixed $value1 , mixed $value2 [, mixed $... ] )
+// 如果仅有一个参数且为数组，max() 返回该数组中最大的值。如果第一个参数是整数、字符串或浮点数，则至少需要两个参数而 max() 会返回这些值中最大的一个。可以比较无限多个值。
+// Note:
+// PHP 会将非数值的 string 当成 0，但如果这个正是最大的数值则仍然会返回一个字符串。
+// 如果多个参数都求值为 0 且是最大值，max() 会返回其中数值的 0，如果参数中没有数值的 0，则返回按字母表顺序最大的字符串。
+echo max(1, 3, 5, 6, 7);  // 7
+echo max(array(2, 4, 5)); // 5
 
+// When 'hello' is cast as integer it will be 0. Both the parameters are equally
+// long, so the order they are given in determines the result
+echo max(0, 'hello');     // 0
+echo max('hello', 0);     // hello
+
+echo max('42', 3); // '42'
+
+// min — 找出最小值
+// mixed min ( array $values )
+// mixed min ( mixed $value1 , mixed $value2 [, mixed $... ] )
+// 如果仅有一个参数且为数组，min() 返回该数组中最小的值。如果给出了两个或更多参数, min() 会返回这些值中最小的一个。
+// Note:
+// PHP 会将非数值的 string 当成 0，但如果这个正是最小的数值则仍然会返回一个字符串。
+// 如果多个参数都求值为 0 且是最小值，min() 会返回按字母表顺序最小的字符串，如果其中没有字符串的话，则返回数值的 0。
+echo min(2, 3, 1, 6, 7);  // 1
+echo min(array(2, 4, 5)); // 2
+
+echo min(0, 'hello');     // 0
+echo min('hello', 0);     // hello
+echo min('hello', -1);    // -1
 ?>
 ```
 
-###### 23、
+###### 23、排序
+| Type                  | Desc
+|:----------------------|:---------------------------------------------------------------------------------------
+| SORT_REGULAR          | 正常比较单元（不改变类型）
+| SORT_NUMERIC          | 单元被作为数字来比较
+| SORT_STRING           | 单元被作为字符串来比较
+| SORT_LOCALE_STRING    | 根据当前的区域（locale）设置来把单元当作字符串比较，可以用 setlocale() 来改变。
+| SORT_NATURAL          | 和 natsort() 类似对每个单元以“自然的顺序”对字符串进行排序。 PHP 5.4.0 中新增的。
+| SORT_FLAG_CASE        | 能够与 SORT_STRING 或 SORT_NATURAL 合并（OR 位运算），不区分大小写排序字符串。
+
+|函数名称	            |排序依据	    |数组索引键保持	                |排序的顺序	
+|:------------------|:----------|:------------------------------|:-----------
+|sort()	            |值	        |否	                             |由低到高
+|rsort()	        |值	        |否	                             |由高到低
+|asort()           	|值	        |是	                             |由低到高	                
+|arsort()	        |值	        |是	                             |由高到低	                
+|ksort()	        |键	        |是	                             |由低到高
+|krsort()	        |键	        |是	                             |由高到低
+|uasort()	        |值	        |是	                             |由用户定义
+|usort()	        |值	        |否	                             |由用户定义
+|uksort()	        |键	        |是	                             |由用户定义
+|natsort()	        |值	        |是	                             |自然排序
+|natcasesort()	    |值	        |是	                             |自然排序，大小写不敏感
+|array_multisort()	|值	        |键值关联的保持，数字类型的不保持    |第一个数组或者由选项指定
+|shuffle()	        |值	        |否	                             |随机	   
+
 ```php
 <?php
+//  usort() 例子
+function cmp($a, $b)
+{
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
+}
 
+$a = array(3, 2, 5, 6, 1);
+
+usort($a, "cmp");
+
+foreach ($a as $key => $value) {
+    echo "$key: $value\n";
+}
+
+// 以上例子输出：
+//0: 1
+//1: 2
+//2: 3
+//3: 5
+//4: 6
+
+// array_multisort — 对多个数组或多维数组进行排序
+// bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )
+// array1             - 要排序的 array。
+// array1_sort_order  - 之前 array 参数要排列的顺序。 SORT_ASC 按照上升顺序排序， SORT_DESC 按照下降顺序排序。
+// 此参数可以和 array1_sort_flags 互换，也可以完全删除，默认是 SORT_ASC 。
+// array1_sort_flags  - 为 array 参数设定选项：
+// 
+// array_multisort() 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。
+// 关联（string）键名保持不变，但数字键名会被重新索引。
+// 返回值 - 成功时返回 TRUE， 或者在失败时返回 FALSE。
+
+$data[] = array('volume' => 67, 'edition' => 2);
+$data[] = array('volume' => 86, 'edition' => 1);
+$data[] = array('volume' => 85, 'edition' => 6);
+$data[] = array('volume' => 98, 'edition' => 2);
+$data[] = array('volume' => 86, 'edition' => 6);
+$data[] = array('volume' => 67, 'edition' => 7);
+
+// 取得列的列表
+foreach ($data as $key => $row) {
+    $volume[$key]  = $row['volume'];
+    $edition[$key] = $row['edition'];
+}
+
+// 将数据根据 volume 降序排列，根据 edition 升序排列
+// 把 $data 作为最后一个参数，以通用键排序
+array_multisort($volume, SORT_DESC, $edition, SORT_ASC, $data);
+
+//volume | edition
+//-------+--------
+//    98 |       2
+//    86 |       1
+//    86 |       6
+//    85 |       6
+//    67 |       2
+//    67 |       7
 ?>
 ```
 
-###### 24、
+###### 24、array_reverse — 返回单元顺序相反的数组
 ```php
 <?php
+// array array_reverse ( array $array [, bool $preserve_keys = false ] )
+// array        - 输入的数组。
+//preserve_keys - 如果设置为 TRUE 会保留数字的键。 非数字的键则不受这个设置的影响，总是会被保留。
+// array_reverse() 接受数组 array 作为输入并返回一个单元为相反顺序的新数组。
 
+$input  = array("php", 4.0, array("green", "red"));
+$reversed = array_reverse($input);
+$preserved = array_reverse($input, true);
+
+print_r($input);
+print_r($reversed);
+print_r($preserved);
+
+//Array
+//(
+//    [0] => php
+//    [1] => 4
+//    [2] => Array
+//        (
+//            [0] => green
+//            [1] => red
+//        )
+//
+//)
+//Array
+//(
+//    [0] => Array
+//        (
+//            [0] => green
+//            [1] => red
+//        )
+//
+//    [1] => 4
+//    [2] => php
+//)
+//Array
+//(
+//    [2] => Array
+//        (
+//            [0] => green
+//            [1] => red
+//        )
+//
+//    [1] => 4
+//    [0] => php
+//)
 ?>
 ```
 
-###### 25、
+###### 25、array_unique — 移除数组中重复的值
 ```php
 <?php
+// array array_unique ( array $array [, int $sort_flags = SORT_STRING ] )
+// array      - 输入的数组。
+// sort_flags - 第二个可选参数sort_flags 可用于修改排序行为： 排序类型标记：
+//     SORT_REGULAR - 按照通常方法比较（不修改类型）
+//     SORT_NUMERIC - 按照数字形式比较
+//     SORT_STRING - 按照字符串形式比较
+//     SORT_LOCALE_STRING - 根据当前的本地化设置，按照字符串比较。
+//
+// array_unique() 接受 array 作为输入并返回没有重复值的新数组。
+// 注意键名保留不变。array_unique() 先将值作为字符串排序，然后对每个值只保留第一个遇到的键名，接着忽略所有后面的键名。
+// 这并不意味着在未排序的 array 中同一个值的第一个出现的键名会被保留。
+// Note: 当且仅当 (string) $elem1 === (string) $elem2 时两个单元被认为相同。 例如，字符串表达一样时，会使用首个元素。
 
+input = array(4, "4", "3", 4, 3, "3");
+$result = array_unique($input);
+var_dump($result);
+
+// array(2) {
+//   [0] => int(4)
+//   [2] => string(1) "3"
+// }
 ?>
 ```
 
-###### 26、
+###### 26、数组的交集、差集、并集
 ```php
 <?php
+// 交集 - array_intersect — 计算数组的交集
+// array array_intersect ( array $array1 , array $array2 [, array $... ] )
+// array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
 
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_intersect($array1, $array2);
+print_r($result);
+
+//Array
+//(
+//    [a] => green
+//    [0] => red
+//)
+
+// 差集 - array_diff — 计算数组的差集
+// array array_diff ( array $array1 , array $array2 [, array $... ] )
+// 对比 array1 和其他一个或者多个数字，返回在 array1 中但是不在其他 array 里的值。
+
+$array1 = array("a" => "green", "red", "blue", "red");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+
+print_r($result);
+
+//Array
+//(
+//    [1] => blue
+//)
+
+// 并集 array_unique(array_merge($arr1 = array, [$arr1 = array, ...]))
 ?>
 ```
 
-###### 27、
+###### 27、提供像访问数组一样访问对象的能力的接口。
 ```php
-<?php
+ArrayAccess {
+    /* 方法 */
+    abstract public boolean offsetExists ( mixed $offset )
+    abstract public mixed offsetGet ( mixed $offset )
+    abstract public void offsetSet ( mixed $offset , mixed $value )
+    abstract public void offsetUnset ( mixed $offset )
+}
 
+ArrayAccess::offsetExists — 检查一个偏移位置是否存在
+ArrayAccess::offsetGet    — 获取一个偏移位置的值
+ArrayAccess::offsetSet    — 设置一个偏移位置的值
+ArrayAccess::offsetUnset  — 复位一个偏移位置的值
+
+<?php
+class TestArrayAccess implements ArrayAccess
+{
+    # 存储数据
+    private $data = [];
+
+    /**
+     * 以对象的方式访问数组中的数据
+     *
+     * @param $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        return $this->data[$key];
+    }
+
+    /**
+     * 以对象方式添加一个数组元素
+     *
+     * @param $key
+     * @param $val
+     */
+    public function __set($key, $val)
+    {
+        $this->data[$key] = $val;
+    }
+
+    /**
+     * 以对象方式判断数组元素是否设置
+     *
+     * @param $key
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        return isset($this->data[$key]);
+    }
+
+    /**
+     * 以对象方式删除一个数组元素
+     *
+     * @param $key
+     */
+    public function __unset($key)
+    {
+        unset($this->data[$key]);
+    }
+
+    /**
+     * @param mixed $offset
+     * @return mixed|null
+     */
+    public function offsetGet($offset)
+    {
+        return $this->offsetExists($offset) ? $this->data[$offset] : null;
+    }
+
+    /**
+     * @param mixed $offset
+     * @param mixed $value
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->data[] = $value;
+        } else {
+            $this->data[$offset] = $value;
+        }
+    }
+
+    /**
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->data[$offset]);
+    }
+
+    /**
+     * @param mixed $offset
+     */
+    public function offsetUnset($offset)
+    {
+        if ($this->offsetExists($offset)) {
+            unset($this->data[$offset]);
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function &__invoke()
+    {
+        return $this->data;
+    }
+}
 ?>
 ```
 
@@ -445,21 +888,21 @@ print_r($basket);
 ?>
 ```
 
-###### 12、
+###### 31、
 ```php
 <?php
 
 ?>
 ```
 
-###### 12、
+###### 32、
 ```php
 <?php
 
 ?>
 ```
 
-###### 12、
+###### 33、
 ```php
 <?php
 

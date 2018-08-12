@@ -4,6 +4,7 @@
 ###### 本文函数列表
 - isset
 - empty
+- is_null
 
 ###### 1、isset() - 检测变量是否已设置并且非 NULL
 ```php
@@ -43,5 +44,15 @@ var_dump(isset($foo));   // FALSE
 // >> array() (一个空数组)
 // >> $var; (一个声明了，但是没有值的变量)
 
+?>
+```
+
+###### 3、is_null — 检测变量是否为 NULL
+```php
+<?php 
+// bool is_null ( mixed $var )
+// 如果 var 是 null 则返回 TRUE，否则返回 FALSE。
+//
+// 查看 NULL 类型获知变量什么时候被认为是 NULL，而什么时候不是。
 ?>
 ```

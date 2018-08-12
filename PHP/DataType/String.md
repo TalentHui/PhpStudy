@@ -207,3 +207,53 @@ foreach ($sales_data as $sales_line) {
 
 fclose($output) or die("not close php://output");
 ```
+
+###### 14、strcmp — 二进制安全字符串比较
+```php
+<?php
+// int strcmp ( string $str1 , string $str2 )
+// 注意该比较区分大小写。
+// str1 第一个字符串。
+// str2 第二个字符串。
+// 返回值 如果 str1 小于 str2 返回 < 0； 如果 str1 大于 str2 返回 > 0；如果两者相等，返回 0。
+?>
+```
+
+###### 15、htmlspecialchars — 将特殊字符转换为 HTML 实体
+| 字符       | 替换后
+|:-----------|:-----------------
+|& (& 符号)	 | &amp;
+|" (双引号)	 | &quot;，除非设置了 ENT_NOQUOTES
+|' (单引号)	 | 设置了 ENT_QUOTES 后， &#039; (如果是 ENT_HTML401) ，或者 &apos; (如果是 ENT_XML1、 ENT_XHTML 或 ENT_HTML5)。
+|< (小于)	 | &lt;
+|> (大于)	 | &gt;
+
+```php
+<?php
+// htmlspecialchars — 将特殊字符转换为 HTML 实体
+// 注意，本函数不会转换以上列表以外的实体。
+
+// htmlspecialchars_decode() - 将特殊的 HTML 实体转换回普通字符
+?>
+```
+
+###### 16、urlencode — 编码 URL 字符串
+```php
+<?php
+// string urlencode ( string $str )
+// 此函数便于将字符串编码并将其用于 URL 的请求部分，同时它还便于将变量传递给下一页。
+//
+//  当提交时，不论是 GET 或者 POST 方法，数据都会被浏览器进行 urlencode 来传输，并直接被 PHP urldecode。
+// 所以最终不需要自己处理任何 urlencoding/urldecoding，全都是自动处理的。
+?>
+```
+
+###### 17、strip_tags — 从字符串中去除 HTML 和 PHP 标记
+```php
+<?php
+// string strip_tags ( string $str [, string $allowable_tags ] )
+// str            - 输入字符串。
+// allowable_tags - 使用可选的第二个参数指定不被去除的字符列表。
+// 该函数尝试返回给定的字符串 str 去除空字符、HTML 和 PHP 标记后的结果。它使用与函数 fgetss() 一样的机制去除标记。
+?>
+```
