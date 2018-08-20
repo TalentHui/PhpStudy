@@ -1,44 +1,41 @@
 #Unix命令行程序和内建指令列表
 
 ---
-| type     | command | desc       | command  | desc       | command      
-|:---------|:--------|:-----------|:---------|:-----------|:-----
-| 文件系统   | cat     | 文字编辑  | paste       | 使用环境     | env      
-| 文件系统   | cd      | 文字编辑  | sed         | 使用环境     | finger   
-| 文件系统   | chmod   | 文字编辑  | sort        | 使用环境     | id       
-| 文件系统   | chown   | 文字编辑  | strings     | 使用环境     | logname  
-| 文件系统   | chgrp   | 文字编辑  | talk        | 使用环境     | mesg     
-| 文件系统   | cksum   | 文字编辑  | tac         | 使用环境     | passwd         
-| 文件系统   | cmp     | 文字编辑  | tail        | 使用环境     | su             
-| 文件系统   | cp      | 文字编辑  | tr          | 使用环境     | sudo           
-| 文件系统   | du      | 文字编辑  | uniq        | 使用环境     | uptime       
-| 文件系统   | df      | 文字编辑  | vi          | 使用环境     | w            
-| 文件系统   | fsck    | 文字编辑  | awk         | 使用环境     | wall          
-| 文件系统   | fuser   | 文字编辑  | comm        | 使用环境     | who       
-| 文件系统   | ln      | 文字编辑  | cut         | 使用环境     | whoami    
-| 文件系统   | ls      | 文字编辑  | ed          | 使用环境     | write     
-| 文件系统   | lsattr  | 文字编辑  | ex          | Shell程序   | alias       
-| 文件系统   | lsof    | 文字编辑  | fmt         | Shell程序   | basename    
-| 文件系统   | mkdir   | 文字编辑  | head        | Shell程序   | dirname     
-| 文件系统   | mount   | 文字编辑  | iconv       | Shell程序   | echo     
-| 文件系统   | mv      | 文字编辑  | join        | Shell程序   | expr     
-| 文件系统   | pwd     | 文字编辑  | less        | Shell程序   | false   
-| 文件系统   | rm      | 文字编辑  | more        | Shell程序   | printf  
-| 文件系统   | rmdir   | 文字编辑  | wc          | Shell程序   | test       
-| 文件系统   | split   | 文字编辑  | xargs       | Shell程序   | true        
-| 文件系统   | touch   | 搜索     | find        | Shell程序   | unset      
-| 文件系统   | umask   | 搜索     | grep         
-| 文字编辑   | paste   | 搜索     | locate        
-| 文字编辑   | sed     | 搜索     | whereis    
-| 文字编辑   | sort    | 搜索     | which     
-| 文字编辑   | strings | 网络     | rlogin             
-| 文字编辑   | talk    | 网络     | netcat                             
-| 文字编辑   | tac     | 网络     | traceroute             
-| 文字编辑   | tail    | 网络     | inetd                 
-| 文字编辑   | tr      | 网络     | netstat          
-| 文字编辑   | uniq    | 网络     | ping  
-| 文字编辑   | vi      
-
+| type     | command | type     | command | desc       | command  | desc    | command      
+|:---------|:--------|:---------|:--------|:-----------|:---------|:--------|:-----
+| 文字编辑  | paste    | 文件系统   | cat     | 使用环境     | env     | 搜索     | find       
+| 文字编辑  | sed      | 文件系统   | cd      | 使用环境     | finger  | 搜索     | grep       
+| 文字编辑  | sort     | 文件系统   | chmod   | 使用环境     | id      | 搜索     | locate     
+| 文字编辑  | strings  | 文件系统   | chown   | 使用环境     | logname | 搜索     | whereis    
+| 文字编辑  | talk     | 文件系统   | chgrp   | 使用环境     | mesg    | 搜索     | which     
+| 文字编辑  | tac      | 文件系统   | cksum   | 使用环境     | passwd  | 网络     | rlogin           
+| 文字编辑  | tail     | 文件系统   | cmp     | 使用环境     | su      | 网络     | netcat           
+| 文字编辑  | tr       | 文件系统   | cp      | 使用环境     | sudo    | 网络     | traceroute       
+| 文字编辑  | uniq     | 文件系统   | du      | 使用环境     | uptime  | 网络     | inetd          
+| 文字编辑  | vi       | 文件系统   | df      | 使用环境     | w       | 网络     | netstat        
+| 文字编辑  | awk      | 文件系统   | fsck    | 使用环境     | wall    | 网络     | ping       
+| 文字编辑  | comm     | 文件系统   | fuser   | 使用环境     | who       
+| 文字编辑  | cut      | 文件系统   | ln      | 使用环境     | whoami    
+| 文字编辑  | ed       | 文件系统   | ls      | 使用环境     | write     
+| 文字编辑  | ex       | 文件系统   | lsattr  | Shell程序   | alias       
+| 文字编辑  | fmt      | 文件系统   | lsof    | Shell程序   | basename    
+| 文字编辑  | head     | 文件系统   | mkdir   | Shell程序   | dirname     
+| 文字编辑  | iconv    | 文件系统   | mount   | Shell程序   | echo     
+| 文字编辑  | join     | 文件系统   | mv      | Shell程序   | expr     
+| 文字编辑  | less     | 文件系统   | pwd     | Shell程序   | false   
+| 文字编辑  | more     | 文件系统   | rm      | Shell程序   | printf  
+| 文字编辑  | wc       | 文件系统   | rmdir   | Shell程序   | test       
+| 文字编辑  | xargs    | 文件系统   | split   | Shell程序   | true        
+| 文字编辑  | paste    | 文件系统   | touch   | Shell程序   | unset      
+| 文字编辑  | sed      | 文件系统   | umask     
+| 文字编辑  | sort   
+| 文字编辑  | strings
+| 文字编辑  | talk   
+| 文字编辑  | tac    
+| 文字编辑  | tail         
+| 文字编辑  | tr     
+| 文字编辑  | uniq   
+| 文字编辑  | vi     
 
 | type     | command | desc       | command  
 |:---------|:--------|:-----------|:---------
