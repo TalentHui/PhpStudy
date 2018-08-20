@@ -29,3 +29,29 @@
 |-x    |  只显示全列符合的列。
 |-y    |  此参数效果跟“-i”相同。
 |-o    |  只输出文件中匹配到的部分。
+```text
+1. grep最简单的用法，匹配一个词：grep word filename
+
+2. 能够从多个文件里匹配：grep word filename1 filename2 filename3
+
+3. 能够使用正則表達式匹配：grep -E pattern f1 f2 f3...
+
+4. 假设须要显示行号，能够打开-n，例如以下：
+www@ubuntu:command$ echo -e "1111\n2222\n33333\n44444" | grep -n -E "3"
+3:33333
+
+5. 打开递归搜索功能
+www@ubuntu:command$ grep -n -R linux . 
+./test2.txt:5:linux
+./test1.txt:1:linux
+
+6. 忽略大写和小写：-i
+www@ubuntu:command$ echo "HELLO WORLD" | grep -i "hello"
+HELLO WORLD
+
+7. 匹配多个字符串模式
+www@ubuntu:command$ echo "This is a line." | grep -e "This" -e "is" -e "line" -o
+This
+is
+line
+```
