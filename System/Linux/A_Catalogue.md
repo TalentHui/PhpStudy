@@ -37,18 +37,17 @@
 | 文字编辑  | uniq   
 | 文字编辑  | vi     
 
-| type     | command | desc       | command  
-|:---------|:--------|:-----------|:---------
-| 杂项        | tee      | 杂项        | type   
-| 杂项        | tput     | 杂项        | yes    
-| 杂项        | clear    | 杂项        | uname    
-| 杂项        | date     | 杂项        | whatis      
-| 杂项        | dd       | 杂项        | apropos     
-| 杂项        | file     | 杂项        | banner      
-| 杂项        | help     | 杂项        | bc          
-| 杂项        | info     | 杂项        | cal         
-| 杂项        | size     | 杂项        | lp         
-| 杂项        | man      | 杂项        | history    
+| type | command | desc  | command  | desc | command  | desc | command  
+|:-----|:--------|:------|:---------|:-----|:---------|:-----|:---------
+| 杂项  | tee     | 杂项   | type     | 杂项  | cal     | 杂项   | bc         
+| 杂项  | tput    | 杂项   | yes      | 杂项  | lp      | 杂项   | help                  
+| 杂项  | clear   | 杂项   | uname    | 杂项  | history | 杂项   | file               
+| 杂项  | date    | 杂项   | whatis   | 杂项  | info    | 杂项   | banner                    
+| 杂项  | dd      | 杂项   | apropos  | 杂项  | size    | 杂项   | man                   
+|                 
+                 
+                
+                
 
 
 
